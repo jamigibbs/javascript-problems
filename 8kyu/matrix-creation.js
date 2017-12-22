@@ -1,14 +1,14 @@
 function getMatrix(number) {
   var matrix = [];
-  var counter = 0;
 
+  // Individual array indexes loop
   for(var i = 0; i < number; i++){
     var temp = [];
+    // Number of arrays to create loop
     for(var j = 0; j < number; j++){
-      temp[j] = counter === j ? 1 : 0;
+      temp[j] = i === j ? 1 : 0;
     }
     matrix.push(temp);
-    counter++;
   }
 
   return matrix;
