@@ -1,23 +1,12 @@
 function underToCamel(name){
-  // string to array
-  var arr = name.split('');
-
-  // find all underscores
-  for(var i = 0; i <= arr.length; i++){
-    if(arr[i] === '_'){
-      // Add uppercase to adjacent property
-      arr[i + 1] = arr[i + 1].toString().toUpperCase();
-      // Remove underscore
-      arr.splice(i, 1);
-    }
-  }
-
-  // make first letter lowercase
-  arr[0].toLowerCase();
-
-  // Join the array
-  return arr.join('');
+  return name
+    .split('_')
+    .reduce(function(acc, val, i){
+      return acc = i > 0 ? acc += val.charAt(0).toUpperCase() + val.slice(1) : val;
+    }, [])
 }
+
+// O(N)
 
 //EXAMPLE TESTS
 

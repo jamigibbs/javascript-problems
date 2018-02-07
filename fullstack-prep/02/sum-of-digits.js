@@ -1,19 +1,11 @@
 function sumOfDigits(digit){
-  if(!digit){ return 0 };
+  digit = digit || 0;
+
+  var arr = digit.toString().split('');
   
-  var total = 0;
-
-  // to string
-  digit = digit.toString();
-
-  // split string to array
-  var array = digit.split('');
-
-  // add values
-  for(var i = 0; i < array.length; i++){
-    total += parseInt(array[i]);
-  }
-  return total;
+  return arr.reduce(function(acc, val){
+    return acc += Number(val);
+  }, 0)
 }
 
 //EXAMPLE TESTS
