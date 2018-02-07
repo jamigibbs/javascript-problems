@@ -1,23 +1,20 @@
 function totalPortfolioValue(ticker, portfolio){
-  var total = 0;
 
-  // Portfolio loop
-  for(var i = 0; i < portfolio.length; i++){
-    // Ticker loop
-    for(var j = 0; j < ticker.length; j++){
-      if(portfolio[i][0] === ticker[j]){
-        total += portfolio[i][1] * ticker[j + 1];
-      }
+  return portfolio.reduce(function(acc, curr, i){
+    var indexMatch = ticker.indexOf(portfolio[i][0]);
+
+    if(indexMatch || indexMatch == 0){
+      var tickerIndex = ticker.indexOf(portfolio[i][0]);
+      acc += ticker[tickerIndex + 1] * portfolio[i][1];
     }
-  }
 
-  return total;
+    return acc;
+  }, 0)
+
 }
 
 
-
 //EXAMPLE TESTS
-
 var ticker = ['ABC', 10, 'XYZ', 200, 'BBB', 5];
 var portfolio = [['XYZ', 20], ['BBB', 10]];
 

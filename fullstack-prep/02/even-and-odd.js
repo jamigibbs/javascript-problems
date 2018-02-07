@@ -1,18 +1,9 @@
 function evenOdd(arr){
-  var evens = [],
-      odds = [],
-      final = [];
-
-  for(var i = 0; i < arr.length; i++){
-    if(arr[i] % 2 == 0){
-      evens.push(arr[i]);
-    } else {
-      odds.push(arr[i]);
-    }
-  }
-
-  final.push(evens,odds);
-  return final;
+  var result = [ [], [] ]
+  arr.forEach(function(val){
+    return val % 2 == 0 ? result[0].push(val) : result[1].push(val);
+  })
+  return result;
 }
 
 

@@ -1,8 +1,9 @@
 function rotate(arr, steps){
-  var section = arr.slice(0, steps);
-  arr.splice(0, steps);
-  
-  return arr.concat(section);
+  if(steps == 0){
+    return arr;
+  }
+
+  return rotate( arr.concat( arr.splice(0, 1) ), steps - 1)
 }
 
 //EXAMPLE TESTS

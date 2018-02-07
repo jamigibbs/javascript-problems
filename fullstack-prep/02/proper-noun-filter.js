@@ -1,17 +1,17 @@
 function properNounFilter(word){
-  var firstLetter = word.slice(0, 1),
-      count = 0;
+  var arr = word.split('');
+  var result = [false, 0];
 
-  for(var i = 0; i < word.length; i++){
-    if(word[i] === word[i].toUpperCase()) {
-      count++;
+  arr.forEach(function(val){
+    if(arr[0] == val.toUpperCase()){
+      result[0] = true;
     }
-  }
+    if(val == val.toUpperCase()){
+      result[1]++;
+    }
+  });
 
-  if(count++ > 1){
-    return false
-  }
-  return firstLetter === firstLetter.toUpperCase() ? true : false;
+  return result[0] == true && result[1] == 1 ? true : false;
 }
 
 //EXAMPLE TESTS

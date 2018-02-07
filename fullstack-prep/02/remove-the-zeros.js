@@ -1,19 +1,20 @@
 function removeZeros(num){
-  if(num === 0){ return NaN; }
+  var numStr = '' + num;
+  var arr = numStr.split('');
 
-  // Convert number to string into array
-  var arr = num.toString().split(''),
-      cleaned = [];
-
-  // Clean out zeros (truthy)
-  for(var i = 0; i < arr.length; i++){
-    if(arr[i] != 0){
-      cleaned.push(arr[i]);
+  var result = arr.reduce(function(acc, el){
+    var strToNum = Number(el);
+    if(el != 0){
+      if(isNaN(strToNum)){
+        acc += el
+      } else {
+        acc += strToNum
+      }
     }
-  }
+    return acc;
+  }, '');
 
-  // string to number
-  return parseFloat(cleaned.join(''));
+  return result != 0 ? Number(result) : NaN;
 }
 
 //EXAMPLE TESTS
