@@ -1,10 +1,7 @@
 function sumCart(cart){
-  var total = 0;
-
-  for(var i = 0; i < cart.length; i++){
-    total += cart[i][1]['quantity'] * cart[i][1]['price'];
-  }
-  return total;
+  return cart.reduce(function(acc, curr){
+    return acc += curr[1].quantity * curr[1].price;
+  }, 0)
 }
 
 //EXAMPLE TESTS

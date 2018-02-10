@@ -1,23 +1,20 @@
 function objectifier(data){
   var obj = {}
 
-  for(var i = 0; i < data.length; i++){
-    var propName = data[i][0];
+  data.forEach(function(val, i){
 
-    // Add parent level
-    obj[propName] = {};
+    var key = data[i][0]
+    obj[key] = {}
 
-    var values = data[i][1];
-
-    // Add children
-    for(var j = 0; j < values.length; j++){
-      if(j % 2 === 0){
-        obj[propName][values[j]] = values[j + 1];
+    return data[i][1].forEach(function(type, j){
+      if(j % 2 == 0){
+        obj[key][type] = data[i][1][j + 1];
       }
-    }
+    })
 
-  }
-  return obj;
+  });
+
+  return obj
 }
 
 //EXAMPLE TEST
