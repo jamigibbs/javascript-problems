@@ -1,11 +1,11 @@
 function myFilter(arr, callback){
-  var newArray = [];
-  for(var i = 0; i < arr.length; i++){
-    if(callback(arr[i])){
-      newArray.push(arr[i]);
+  var newArr = [];
+  arr.forEach(function(val){
+    if(callback(val)){
+      newArr.push(val)
     }
-  }
-  return newArray;
+  })
+  return newArr;
 }
 
 //EXAMPLE TESTS

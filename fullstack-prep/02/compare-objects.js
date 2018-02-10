@@ -1,14 +1,13 @@
 function compareObjects(objA, objB){
-  // Loop through first obj
-  for(var propA in objA){
-    // Loop through second obj
-    for(var propB in objB){
-      if(propA !== propB || objA[propA] !== objB[propB]){
-        return false;
+  var result = true;
+  Object.keys(objA).forEach(function(keyA){
+    return Object.keys(objB).find(function(keyB){
+      if(objA[keyA] != objB[keyB] || keyA != keyB){
+        result = false;
       }
-    }
-  }
-  return true;
+    })
+  })
+  return result;
 }
 
 //EXAMPLE TESTS

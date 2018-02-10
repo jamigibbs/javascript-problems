@@ -1,8 +1,7 @@
 function sumReduce(arr){
-  var reducer = function(accumulator, currentValue){
-    return arr.length === 0 ? 50 : accumulator + currentValue
-  }
-  return arr.reduce(reducer, 50);
+  return arr.reduce(function(acc, val){
+    return acc += val;
+  }, 50)
 }
 
 

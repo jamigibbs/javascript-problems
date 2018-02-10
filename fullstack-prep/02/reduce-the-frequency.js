@@ -1,11 +1,7 @@
 function strFrequency(arr){
-  return arr.reduce(function(obj, elem){
-    if(obj[elem]){
-      obj[elem]++;
-    } else {
-      obj[elem] = 1;
-    }
-    return obj;
+  return arr.reduce(function(acc, val){
+    typeof acc[val] === 'undefined' ? acc[val] = 1 : acc[val]++;
+    return acc;
   }, {});
 }
 

@@ -1,9 +1,9 @@
 function myMap(arr, callback){
-  var newArray = [];
-  for(var i = 0; i < arr.length; i++){
-    newArray.push(callback(arr[i]));
-  }
-  return newArray;
+  var newArr = [];
+  arr.forEach(function(val){
+    newArr.push(callback(val));
+  })
+  return newArr;
 }
 
 //EXAMPLE TESTS
