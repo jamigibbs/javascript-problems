@@ -3,9 +3,7 @@ function mySplice(arr, start, deleteCount) {
   var keep = [];
 
   // Account for optional delete
-  if(deleteCount === undefined) {
-    deleteCount = arr.length - start;
-  }
+  deleteCount = deleteCount || arr.length - start;
 
   // Move items before delete start position into new array
   for(var i = 0; i < start; i++) {
@@ -23,7 +21,8 @@ function mySplice(arr, start, deleteCount) {
   }
 
   // Add original kept items in front of new items of original array
-  for(var j = 0, length = keep.length; j < length; j++) {
+  var length = keep.length;
+  for(var j = 0; j < length; j++) {
     arr.unshift(keep.pop());
   }
 
@@ -42,8 +41,8 @@ console.log(mySplice(arr, 0, 2));
 console.log(arr);
 // [3, 4]
 
-console.log(mySplice(array, 2, 4));
+console.log(mySplice(array, 2, 4, 4, 5, 6));
 // [3, 4, 5, 6]
 
 console.log(array);
-// [1, 2, 7, 8]
+// [1, 2, 4, 5, 6, 7, 8]

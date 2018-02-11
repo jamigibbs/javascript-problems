@@ -2,24 +2,21 @@
  * Complete the function below.
  */
 function firstRepeatingLetter(str) {
-  for(var i = 0; i < str.length; i++){
-    var temp = 0;
-    for(var j = 0; j < str.length; j++){
-      if(str[i] === str[j]){
-        temp++;
-        if(temp >= 2){
-          return str[i]
-        }
-      }
+  var comp = str[0];
+
+  if(str.length < 1){
+    return false;
+  }
+
+  for(var i = 1; i < str.length; i++){
+    if(comp == str[i]){
+      return str[i]
     }
   }
+
+  return firstRepeatingLetter( str.slice(1) )
 }
 
-console.log(firstRepeatingLetter('Grace Hopper Academy'));
-// r
-
-console.log(firstRepeatingLetter('Shanna Gregory'));
-// a
-
-console.log(firstRepeatingLetter('David & Nimit'));
-// i
+console.log('r ->', firstRepeatingLetter('Grace Hopper Academy'));
+console.log('a ->', firstRepeatingLetter('Shanna Gregory'));
+console.log('i ->', firstRepeatingLetter('David & Nimit'));
