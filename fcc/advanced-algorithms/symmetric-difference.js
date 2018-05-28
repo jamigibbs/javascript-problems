@@ -4,9 +4,6 @@ function sym(args) {
   // Account for new arguments being returned from recursion
   let arrays = arguments.length > 1 ? Array.prototype.slice.call(arguments) : arguments[0];
 
-  // Create diff variable
-  var diff = [];
-
   // Stop recursion when we only have one array left
   if(arrays.length <= 1 ){
     // Final filter for duplicates.
@@ -25,7 +22,7 @@ function sym(args) {
     var newArr = arrays[0].concat(arrays[1]);
 
     // Filter out all matching digits and create new array of non-matching digits
-    diff = newArr.filter( (item, pos) => {
+    var diff = newArr.filter( (item, pos) => {
       if (arrays[0].indexOf(item) === -1 || arrays[1].indexOf(item) === -1) {
         return item;
       }
